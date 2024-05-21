@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    drive-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432:limits
+    hikari:
+      username: limites
+      password: JpaLimitsSpringData
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      hibernate.ddl-auto: create-drop # Does not use in real production server.
+      generate_ddl: true
+      show-sql: true
+  application:
+    name: limite-svc
