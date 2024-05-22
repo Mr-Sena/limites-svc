@@ -3,13 +3,13 @@ version: '3.5'
 services:
   postgres:
     container_name: postgres_container
-    image: postgres
+    image: postgres:16.3
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-limits}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-JpaLimitsSpringData}
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
+#      PGDATA: /data/postgres
+#    volumes:
+#      - postgres:/data/postgres
     ports:
       - "5432:5432"
     networks:
