@@ -1,7 +1,9 @@
 plugins {
 	java
+	idea
 	id("org.springframework.boot") version "3.2.5"
 	id("io.spring.dependency-management") version "1.1.4"
+	id("org.flywaydb.flyway") version "8.4.3"
 }
 
 group = "com.machinery"
@@ -23,8 +25,21 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	compileOnly("org.projectlombok:lombok:1.18.32")
+	annotationProcessor("org.projectlombok:lombok:1.18.32")
+
+	implementation("org.flywaydb:flyway-core")
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
+flyway {
+	url = "jdbc:postgresql://localhost:5432/limites"
+	user = "limits"
+	password = "JpaLimitsSpringData"
+}
+
+
+// build.dependsOn(flywayMigrate)
