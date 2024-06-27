@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface LimiteDiarioRepository extends CrudRepository<LimiteDiario, Long> {
 
-    // Cosnultar automatica para o banco de dados. (FindByAgenciaAndConta)
-    LimiteDiario findByAgenciaAndConta(Long agencia, Long conta);
+    // Consulta automática para o banco de dados. (FindByAgenciaAndConta)
+    Optional<LimiteDiario> findByAgenciaAndConta(final Long agencia, final Long conta);
 
 }

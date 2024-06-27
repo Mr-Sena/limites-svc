@@ -19,7 +19,18 @@ public class LimiteDiarioController {
         this.service = service;
     }
 
-    @GetMapping(value = "/limite-diario/{id}")
+    @GetMapping(value = "/limite-diario/{agencia}/{conta}")
+    public LimiteDiario buscarLimiteDiario(@PathVariable("agencia") final Long agencia, @PathVariable("conta") final Long conta) {
+
+        final Optional<LimiteDiario> data = service.buscarLimiteDiario(agencia, conta);
+        if(data.isPresent()) {
+            return data.get();
+        }
+
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não foi possível localizar o recurso.");
+    }
+
+        @GetMapping(value = "/limite-diario/{id}")
     public LimiteDiario findById(@PathVariable("id") Long id) {
 
         Optional<LimiteDiario> queryResult = service.findById(id);

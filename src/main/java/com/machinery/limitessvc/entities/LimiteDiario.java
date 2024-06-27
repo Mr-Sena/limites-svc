@@ -1,12 +1,11 @@
 package com.machinery.limitessvc.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table
@@ -16,6 +15,7 @@ import java.math.BigDecimal;
 public class LimiteDiario {
 
     @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long agencia;
@@ -24,6 +24,8 @@ public class LimiteDiario {
 
     private BigDecimal valor;
 
+    //Personal edit:
+    private LocalDate data;
 
 
     public String toString() {

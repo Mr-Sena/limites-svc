@@ -20,3 +20,5 @@ spring:
   application:
     name: limite-svc
 
+limite:
+  valor: 2000
