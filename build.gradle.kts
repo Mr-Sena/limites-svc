@@ -28,6 +28,9 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok:1.18.32")
 
 	implementation("org.flywaydb:flyway-core")
+
+	//Kakfa dependecy:
+	implementation("org.springframework.kafka:spring-kafka")
 }
 
 tasks.withType<Test> {

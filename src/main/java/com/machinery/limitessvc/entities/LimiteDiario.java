@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -24,12 +24,7 @@ public class LimiteDiario {
 
     private BigDecimal valor;
 
-    //Personal edit:
-    private LocalDate data;
+    private LocalDateTime data;
 
 
-    public String toString() {
-        return "LimiteDiario(id=" + this.getId() + ", agencia=" + this.getAgencia() +
-                ", conta=" + this.getConta() + ", valor=" + this.getValor() + ")";
-    }
 }

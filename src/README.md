@@ -7,3 +7,5 @@
  ``` 
 docker compose -f docker-compose-postgres.yaml up
  ```
+
+ > Executar o docker-compose do diretório do projeto transaction-bff para provisionar os tópicos do Kafka.
