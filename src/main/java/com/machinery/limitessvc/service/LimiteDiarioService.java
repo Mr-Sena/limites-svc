@@ -33,7 +33,7 @@ public class LimiteDiarioService {
     public Optional<LimiteDiario> buscarLimiteDiario(final Long agencia, final Long conta ) {
 
         var data = limiteDiarioRepository.findByAgenciaAndConta(agencia, conta);
-
+        log.info("Dados da conta: Agência {}/{}", agencia, conta);
         if (data.isEmpty()) {
             var limiteDiario = new LimiteDiario();
 
@@ -41,9 +41,11 @@ public class LimiteDiarioService {
             limiteDiario.setConta(conta);
             limiteDiario.setAgencia(agencia);
             limiteDiario.setData(LocalDateTime.now());
+            log.info("Novo limite diário disponível. {}", limiteDiario);
             return Optional.of(limiteDiarioRepository.save(limiteDiario));
         }
 
+        log.info("Limite diário do cliente: {}", data.get());
         return data;
     }
 
@@ -71,8 +73,8 @@ public class LimiteDiarioService {
 
         if (limiteDiario.getValor().compareTo(transactionDto.getValue()) < 0) {
 
-            log.info("Valor de transação excede o limite diário: {}", transactionDto);
             transactionDto.suspeitaFraude();
+            log.info("Valor de transação excede o limite diário: {}", transactionDto);
         }
 
         else if (limiteDiario.getValor().compareTo(BigDecimal.valueOf(20000L)) > 0) {

@@ -35,3 +35,7 @@ limite:
 app:
   topic: transaction
   returnTopic: transaction_extorno
+
+
+server:
+  port: 8086
