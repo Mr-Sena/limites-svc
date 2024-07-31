@@ -1,4 +1,12 @@
 spring:
+
+# Unnecessary, in this case.
+#  autoconfigure:
+#    exclude:
+#      - org.springframework.cloud.aws.autoconfigure.context.ContextInstanceDataAutoConfiguration
+#      - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+#      - org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
+
   kafka:
     bootstrap-servers: 127.0.0.1:9092
     consumer:
@@ -32,10 +40,21 @@ spring:
 limite:
   valor: 2000
 
+server:
+  port: 8086
+
 app:
   topic: transaction
   returnTopic: transaction_extorno
 
+document:
+  bucket-name: blueproject.limites
 
-server:
-  port: 8086
+cloud:
+  aws:
+    region:
+      static: us-east-1
+      auto: false
+    credentials:
+      access-key: <property-credentials>
+      secret-key: <property-credentials>
